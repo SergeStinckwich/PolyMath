@@ -34,7 +34,6 @@ DataTreeTest >> testDataTree [
 	| s dataTree |
 	a run.
 	dataTree := a dataTree.
-	self assert: (dataTree atPath: #('iterations')) equals: 1.
 	self
 		assert: (dataTree atPath: #('names' 'data'))
 		equals: #('Aaa' 'Bbb' 'Ccc' 'Ddd' 'Eee' 'Fff').
@@ -66,4 +65,12 @@ DataTreeTest >> testDataTree [
 			-100.0.
 			Float infinity negated}.
 	self assert: (s at: 5) isNaN
+]
+
+{ #category : #tests }
+DataTreeTest >> testThatNumberOfIterationsIsOne [
+	| s dataTree |
+	a run.
+	dataTree := a dataTree.
+	self assert: (dataTree atPath: #('iterations')) equals: 1.
 ]
