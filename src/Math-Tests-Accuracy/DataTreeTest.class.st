@@ -35,9 +35,6 @@ DataTreeTest >> testDataTree [
 	a run.
 	dataTree := a dataTree.
 	self
-		assert: (dataTree atPath: #('names' 'data'))
-		equals: #('Aaa' 'Bbb' 'Ccc' 'Ddd' 'Eee' 'Fff').
-	self
 		assert: (dataTree atPath: #('names' 'Aaa' #(1 2) #(4 4)))
 		equals:
 			(KeyedTree new
@@ -68,8 +65,18 @@ DataTreeTest >> testDataTree [
 ]
 
 { #category : #tests }
+DataTreeTest >> testThatNamesAreInitialisationKeys [
+	| dataTree |
+	a run.
+	dataTree := a dataTree.
+	self
+		assert: (dataTree atPath: #('names' 'data'))
+		equals: #('Aaa' 'Bbb' 'Ccc' 'Ddd' 'Eee' 'Fff').
+]
+
+{ #category : #tests }
 DataTreeTest >> testThatNumberOfIterationsIsOne [
-	| s dataTree |
+	| dataTree |
 	a run.
 	dataTree := a dataTree.
 	self assert: (dataTree atPath: #('iterations')) equals: 1.
