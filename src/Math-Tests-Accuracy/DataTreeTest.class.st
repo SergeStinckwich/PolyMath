@@ -34,23 +34,6 @@ DataTreeTest >> testDataTree [
 	| s dataTree |
 	a run.
 	dataTree := a dataTree.
-	self
-		assert: (dataTree atPath: #('names' 'Aaa' #(1 2) #(4 4)))
-		equals:
-			(KeyedTree new
-				at: 'arguments' put: true;
-				at: 'data' put: #(#(1 1));
-				at: 'error' put: #(300.0 300.0);
-				at: 'expected result' put: #(4 4);
-				at: 'result' put: #(1 1);
-				at: 'type' put: 'result';
-				yourself).
-	self
-		assert: (dataTree atPath: #('names' 'Aaa' 'data'))
-		equals: #(#(1 2) #(3 2.8888)).
-	self
-		assert: (dataTree atPath: #('names' 'Bbb' #(3) 'data'))
-		equals: #(#(2) #(3)).
 	s := dataTree atPath: #('names' 'Ccc' #(3)).
 	self assert: s keys size equals: 5.
 	s := dataTree atPath: #('names' 'Fff' 'error').
@@ -80,4 +63,36 @@ DataTreeTest >> testThatNumberOfIterationsIsOne [
 	a run.
 	dataTree := a dataTree.
 	self assert: (dataTree atPath: #('iterations')) equals: 1.
+]
+
+{ #category : #tests }
+DataTreeTest >> testThatTheKeyedTreeHasArgsDataResultsErrorsAndType [
+	| dataTree |
+	a run.
+	dataTree := a dataTree.
+	self
+		assert: (dataTree atPath: #('names' 'Aaa' #(1 2) #(4 4)))
+		equals:
+			(KeyedTree new
+				at: 'arguments' put: true;
+				at: 'data' put: #(#(1 1));
+				at: 'error' put: #(300.0 300.0);
+				at: 'expected result' put: #(4 4);
+				at: 'result' put: #(1 1);
+				at: 'type' put: 'result';
+				yourself).
+]
+
+{ #category : #tests }
+DataTreeTest >> testThatTheTreesForAaaAndBbbAreSetUpCorrectly [
+	| dataTree |
+	a run.
+	dataTree := a dataTree.
+	self
+		assert: (dataTree atPath: #('names' 'Aaa' 'data'))
+		equals: #(#(1 2) #(3 2.8888)).
+	self
+		assert: (dataTree atPath: #('names' 'Bbb' #(3) 'data'))
+		equals: #(#(2) #(3)).
+	
 ]
