@@ -30,24 +30,6 @@ DataTreeTest >> tearDown [
 ]
 
 { #category : #tests }
-DataTreeTest >> testDataTree [
-	| s dataTree |
-	a run.
-	dataTree := a dataTree.
-	s := dataTree atPath: #('names' 'Ccc' #(3)).
-	self assert: s keys size equals: 5.
-	s := dataTree atPath: #('names' 'Fff' 'error').
-	self
-		assert: (s copyFrom: 1 to: 4)
-		equals:
-			{0.
-			Float infinity.
-			-100.0.
-			Float infinity negated}.
-	self assert: (s at: 5) isNaN
-]
-
-{ #category : #tests }
 DataTreeTest >> testThatNamesAreInitialisationKeys [
 	| dataTree |
 	a run.
@@ -95,4 +77,22 @@ DataTreeTest >> testThatTheTreesForAaaAndBbbAreSetUpCorrectly [
 		assert: (dataTree atPath: #('names' 'Bbb' #(3) 'data'))
 		equals: #(#(2) #(3)).
 	
+]
+
+{ #category : #tests }
+DataTreeTest >> testTreesForCccAndFffAreSetUpCorrectly [
+	| s dataTree |
+	a run.
+	dataTree := a dataTree.
+	s := dataTree atPath: #('names' 'Ccc' #(3)).
+	self assert: s keys size equals: 5.
+	s := dataTree atPath: #('names' 'Fff' 'error').
+	self
+		assert: (s copyFrom: 1 to: 4)
+		equals:
+			{0.
+			Float infinity.
+			-100.0.
+			Float infinity negated}.
+	self assert: (s at: 5) isNaN
 ]
