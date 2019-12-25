@@ -15,6 +15,7 @@ Class {
 
 { #category : #tests }
 PMAccuracyTestExample >> checkAaa [
+	self argument first isString ifTrue: [ Transcript show: (self argument first). ].
 	self argument first
 		ifTrue: [ ^ #(1 1) ].
 	^ {(4 + (0.4 * Random new next)).
@@ -145,7 +146,6 @@ PMAccuracyTestExample >> setUp [
 
 { #category : #running }
 PMAccuracyTestExample >> tearDown [
-	Transcript show: (self argument first) asString .
 	count := count - (1 / 5)
 ]
 
