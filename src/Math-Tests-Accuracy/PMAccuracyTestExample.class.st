@@ -15,7 +15,11 @@ Class {
 
 { #category : #tests }
 PMAccuracyTestExample >> checkAaa [
-	self argument first isString ifTrue: [ Transcript show: (self argument first). ].
+	self argument first isString
+		ifTrue: [ 
+			Transcript show: (self argument first).
+			^ self argument first. 
+			].
 	self argument first
 		ifTrue: [ ^ #(1 1) ].
 	^ {(4 + (0.4 * Random new next)).
