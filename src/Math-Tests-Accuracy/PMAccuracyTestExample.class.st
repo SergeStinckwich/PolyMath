@@ -18,7 +18,7 @@ PMAccuracyTestExample >> checkAaa [
 	self argument first isString
 		ifTrue: [ 
 			Transcript show: (self argument first).
-			^ self argument first. 
+			^ self argument. 
 			].
 	self argument first
 		ifTrue: [ ^ #(1 1) ].
