@@ -32,6 +32,7 @@ DataTreeTest >> tearDown [
 { #category : #tests }
 DataTreeTest >> testThatNamesAreInitialisationKeys [
 	| dataTree |
+	a initializeAaa .
 	a run.
 	dataTree := a dataTree.
 	self
