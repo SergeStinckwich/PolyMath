@@ -145,6 +145,7 @@ PMAccuracyTestExample >> setUp [
 
 { #category : #running }
 PMAccuracyTestExample >> tearDown [
+	Transcript show: self checkAaa .
 	count := count - (1 / 5)
 ]
 
