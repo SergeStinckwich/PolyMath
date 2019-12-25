@@ -145,7 +145,7 @@ PMAccuracyTestExample >> setUp [
 
 { #category : #running }
 PMAccuracyTestExample >> tearDown [
-	Transcript show: self argument asString .
+	Transcript show: (self argument first) asString .
 	count := count - (1 / 5)
 ]
 
